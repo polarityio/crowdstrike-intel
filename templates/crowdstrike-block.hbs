@@ -1,0 +1,89 @@
+<div>
+    Displaying {{details.intel.length}} of {{details.meta.totalResults}} results.
+</div>
+{{#each details.intel as |result index|}}
+    {{#if (gt index 0)}}
+        <hr>
+    {{/if}}
+    <div class="p-title">
+        {{fa-icon "search" fixedWidth=true}} CrowdStrike Intel Details
+    </div>
+    {{#if (eq result.malicious_confidence "high")}}
+        <div>
+            <span class="p-key">Malicious Confidence: </span>
+            <span class="p-value" style="color:red"><b>HIGH</b></span>
+        </div>
+    {{/if}}
+    {{#if (eq result.malicious_confidence "medium")}}
+        <div>
+            <span class="p-key">Malicious Confidence: </span>
+            <span class="p-value" style="color:orange"><b>MEDIUM</b></span>
+        </div>
+    {{/if}}
+    {{#if (eq result.malicious_confidence "low")}}
+        <div>
+            <span class="p-key">Malicious Confidence: </span>
+            <span class="p-value" style="color:yellow"><b>LOW</b></span>
+        </div>
+    {{/if}}
+    {{#if (eq result.malicious_confidence "unverified")}}
+        <div>
+            <span class="p-key">Malicious Confidence: </span>
+            <span class="p-value" style="color:grey"><b>UNVERIFIED</b></span>
+        </div>
+    {{/if}}
+    {{#if result.published_date}}
+        <div>
+            <span class="p-key">Published At: </span>
+            <span class="p-value">{{moment-format (unix result.published_date) "YYYY-MM-DD HH:mm:ss z ZZ" timeZone="GMT"}}</span>
+        </div>
+    {{/if}}
+    {{#if result.last_updated}}
+        <div>
+            <span class="p-key">Last Updated: </span>
+            <span class="p-value">{{moment-format (unix result.last_updated) "YYYY-MM-DD HH:mm:ss z ZZ" timeZone="GMT"}}</span>
+        </div>
+    {{/if}}
+    {{#if (gt result.actors.length 0)}}
+        <h1 class="p-title">{{fa-icon "user-secret" fixedWidth=true}} Actors</h1>
+        {{#each result.actors as | actor |}}
+          <span class="tag">{{actor}}</span>
+        {{/each}}
+    {{/if}}
+    {{#if (gt result.targets.length 0)}}
+        <h1 class="p-title">{{fa-icon "bullseye" fixedWidth=true}} Targets</h1>
+        {{#each result.targets as | target |}}
+          <span class="tag">{{target}}</span>
+        {{/each}}
+    {{/if}}
+    {{#if (gt result.malware_families.length 0)}}
+        <h1 class="p-title">{{fa-icon "viruses" fixedWidth=true}} Malware Families</h1>
+        {{#each result.malware_families as | malware |}}
+          <span class="tag">{{malware}}</span>
+        {{/each}}
+    {{/if}}
+    {{#if (gt result.threat_types.length 0)}}
+        <h1 class="p-title">{{fa-icon "mace" fixedWidth=true}} Threat Types</h1>
+        {{#each result.threat_types as | threat_type |}}
+          <span class="tag">{{threat_type}}</span>
+        {{/each}}
+    {{/if}}
+    {{#if (gt result.kill_chains.length 0)}}
+        <h1 class="p-title">{{fa-icon "viruses" fixedWidth=true}} Kill Chains</h1>
+        {{#each result.kill_chains as | kill_chain |}}
+          <span class="tag">{{kill_chain}}</span>
+        {{/each}}
+    {{/if}}
+    {{#if (gt result.vulnerabilities.length 0)}}
+        <h1 class="p-title">{{fa-icon "exclamation" fixedWidth=true}} Vulnerabilities</h1>
+        {{#each result.vulnerabilities as | vuln |}}
+          <span class="tag">{{vuln}}</span>
+        {{/each}}
+    {{/if}}
+    {{#if (gt result.relations.length 0)}}
+        <h1 class="p-title">{{fa-icon "bug" fixedWidth=true}} Related Indicators</h1>
+        {{#each result.relations as | relation |}}
+          <span class="tag">{{relation.indicator}}</span><br>
+        {{/each}}
+    {{/if}}
+{{/each}}
