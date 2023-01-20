@@ -1,0 +1,102 @@
+{
+  "name": "CrowdStrike Falcon X Intel",
+  "acronym": "CSTKX",
+  "description": "Displays enrichment data related to various indicator types from the Crowdstrike Falcon X Indicators API.",
+  "entityTypes": [
+    "hash",
+    "email",
+    "IPv4",
+    "domain"
+  ],
+  "styles": [
+    "./styles/crowdstrike.less"
+  ],
+  "defaultColor": "light-pink",
+  "block": {
+    "component": {
+      "file": "./components/crowdstrike-block.js"
+    },
+    "template": {
+      "file": "./templates/crowdstrike-block.hbs"
+    }
+  },
+  "summary": {
+    "component": {
+      "file": "./components/crowdstrike-summary.js"
+    },
+    "template": {
+      "file": "./templates/crowdstrike-summary.hbs"
+    }
+  },
+  "request": {
+    "cert": "",
+    "key": "",
+    "passphrase": "",
+    "ca": "",
+    "proxy": "",
+    "rejectUnauthorized": true
+  },
+  "logging": {
+    "level": "info"
+  },
+  "options": [
+    {
+      "key": "url",
+      "name": "Crowdstrike API URL",
+      "description": "The REST API URL for your Crowdstrike instance which should include the schema (i.e., http, https) and port if required.",
+      "default": "https://api.crowdstrike.com",
+      "type": "text",
+      "userCanEdit": false,
+      "adminOnly": true
+    },
+    {
+      "key": "id",
+      "name": "Client ID",
+      "description": "The Client ID to use to connect to Crowdstrike.",
+      "default": "",
+      "type": "text",
+      "userCanEdit": false,
+      "adminOnly": true
+    },
+    {
+      "key": "secret",
+      "name": "Client Secret",
+      "description": "The secret associated with the Client ID.",
+      "default": "",
+      "type": "password",
+      "userCanEdit": false,
+      "adminOnly": true
+    },
+    {
+      "key": "minimumConfidence",
+      "name": "Minimum Confidence",
+      "description": "The minimum malicious confidence level required for indicators to be displayed",
+      "default": {
+        "value": "medium",
+        "display": "Medium"
+      },
+      "type": "select",
+      "options": [
+        {
+          "value": "unverified",
+          "display": "Unverified"
+        },
+        {
+          "value": "low",
+          "display": "Low"
+        },
+        {
+          "value": "medium",
+          "display": "Medium"
+        },
+        {
+          "value": "high",
+          "display": "High"
+        }
+      ],
+      "multiple": false,
+      "userCanEdit": true,
+      "adminOnly": false
+    }
+  ]
+}

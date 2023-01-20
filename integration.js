@@ -1,7 +1,7 @@
 const fs = require('fs');
 const config = require('./config/config');
 const async = require('async');
-const request = require('request');
+const request = require('postman-request');
 
 const MAX_AUTH_RETRIES = 2;
 // Older versions of the Crowdstrike API would return a 403 if the bearer token was expired
