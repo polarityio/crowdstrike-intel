@@ -1,4 +1,5 @@
 {
+  "polarityIntegrationUuid": "eed4ba20-cce1-11ed-aeee-075d3490155d",
   "name": "CrowdStrike Falcon X Intel",
   "acronym": "CSTKX",
   "description": "Displays enrichment data related to various indicator types from the Crowdstrike Falcon X Indicators API.",
