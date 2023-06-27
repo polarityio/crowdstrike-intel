@@ -1,6 +1,6 @@
 {
   "name": "crowdstrike-intel",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "main": "./integration.js",
   "private": true,
   "license": "MIT",
