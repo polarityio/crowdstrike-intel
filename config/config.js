@@ -24,7 +24,7 @@ module.exports = {
    */
   description:
     'Displays enrichment data related to various indicator types from the Crowdstrike Falcon X Indicators API.',
-  entityTypes: ['hash', 'email', 'ipv4', 'domain'],
+  entityTypes: ['hash', 'email', 'IPv4', 'domain'],
   /**
    * An array of style files (css or less) that will be included for your integration. Any styles specified in
    * the below files can be used in your custom template.
