@@ -24,7 +24,7 @@ module.exports = {
    */
   description:
     'Displays enrichment data related to various indicator types from the Crowdstrike Falcon X Indicators API.',
-  entityTypes: ['hash', 'email', 'ipv4', 'domain'],
+  entityTypes: ['MD5', 'SHA1', 'SHA256', 'email', 'IPv4', 'domain'],
   /**
    * An array of style files (css or less) that will be included for your integration. Any styles specified in
    * the below files can be used in your custom template.
@@ -73,7 +73,7 @@ module.exports = {
     ca: '',
     // An HTTP proxy to be used. Supports proxy Auth with Basic Auth, identical to support for
     // the url parameter (by embedding the auth info in the uri)
-    proxy: ""
+    proxy: ''
   },
   logging: {
     // directory is relative to the this integrations directory
