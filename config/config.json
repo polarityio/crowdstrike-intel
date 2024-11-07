@@ -3,15 +3,8 @@
   "name": "CrowdStrike Falcon X Intel",
   "acronym": "CSTKX",
   "description": "Displays enrichment data related to various indicator types from the Crowdstrike Falcon X Indicators API.",
-  "entityTypes": [
-    "hash",
-    "email",
-    "IPv4",
-    "domain"
-  ],
-  "styles": [
-    "./styles/crowdstrike.less"
-  ],
+  "entityTypes": ["MD5", "SHA1", "SHA256", "email", "IPv4", "domain"],
+  "styles": ["./styles/crowdstrike.less"],
   "defaultColor": "light-pink",
   "block": {
     "component": {
@@ -28,13 +21,6 @@
     "template": {
       "file": "./templates/crowdstrike-summary.hbs"
     }
-  },
-  "request": {
-    "cert": "",
-    "key": "",
-    "passphrase": "",
-    "ca": "",
-    "proxy": ""
   },
   "logging": {
     "level": "info"
