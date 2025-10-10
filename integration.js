@@ -1,5 +1,3 @@
-const fs = require('fs');
-const config = require('./config/config');
 const async = require('async');
 const request = require('postman-request');
 
@@ -82,7 +80,7 @@ function searchIntel(entity, options, cb) {
       cb(null, {
         entity: entity,
         data: {
-          summary: [`${body.resources.length} indicators`],
+          summary: [`${body.resources.length} indicator${body.resources.length > 1 ? 's' : ''}`],
           details: {
             meta: {
               totalResults: body.meta.pagination.total
@@ -197,7 +195,10 @@ function onDetails(lookupObject, options, cb) {
     }
 
     lookupObject.data.details.intel = intel;
-
+    if(Array.isArray(intel) && intel.length === 1) {
+      lookupObject.data.summary.push(`Malicious Confidence: ${intel[0].malicious_confidence}`);  
+    }
+    
     cb(null, lookupObject.data);
   });
 }
@@ -205,30 +206,6 @@ function onDetails(lookupObject, options, cb) {
 function startup(logger) {
   Logger = logger;
   let requestOptions = {};
-
-  if (typeof config.request.cert === 'string' && config.request.cert.length > 0) {
-    requestOptions.cert = fs.readFileSync(config.request.cert);
-  }
-
-  if (typeof config.request.key === 'string' && config.request.key.length > 0) {
-    requestOptions.key = fs.readFileSync(config.request.key);
-  }
-
-  if (typeof config.request.passphrase === 'string' && config.request.passphrase.length > 0) {
-    requestOptions.passphrase = config.request.passphrase;
-  }
-
-  if (typeof config.request.ca === 'string' && config.request.ca.length > 0) {
-    requestOptions.ca = fs.readFileSync(config.request.ca);
-  }
-
-  if (typeof config.request.proxy === 'string' && config.request.proxy.length > 0) {
-    requestOptions.proxy = config.request.proxy;
-  }
-
-  if (typeof config.request.rejectUnauthorized === 'boolean') {
-    requestOptions.rejectUnauthorized = config.request.rejectUnauthorized;
-  }
 
   requestOptions.json = true;
   requestWithDefaults = request.defaults(requestOptions);
