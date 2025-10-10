@@ -9,15 +9,46 @@ pre {
   background-color: #fff;
 }
 
-.tag {
-  border-radius: 4px;
-  padding: 2px 5px;
-  margin: 5px 3px 0px 0px;
-  white-space: nowrap;
-  background-color: #eee;
-  display: inline-block;
+.external-link-icon {
+  font-size: 8px;
+  margin-bottom: 1px;
 }
 
-.external-link-icon{
-  font-size: 8px;
+.tag {
+  border: 1px solid #aaa;
+  padding: 2px 5px;
+  border-radius: 4px;
+  margin: 0 2px 5px 0;
+  display: inline-block;
+  font-weight: normal;
+  background-color: #fff;
 }
+
+.p-block {
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+.list-item {
+  background-color: #efefef;
+  margin-bottom: 3px;
+  padding: 5px 5px;
+  border-radius: 4px;
+
+  &:last-child {
+    margin-bottom: 0px;
+  }
+}
+
+.scrollable-container {
+  padding-right: 5px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  max-height: 200px;
+  resize: vertical;
+
+  &[style*="height"] {
+    max-height: unset;
+  }
+}
+
