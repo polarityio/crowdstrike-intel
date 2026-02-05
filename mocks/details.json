@@ -1,0 +1,133 @@
+{
+  "meta": {
+    "totalResults": 2
+  },
+  "resourceIds": [
+    "abc123xyz789",
+    "def456uvw012"
+  ],
+  "intel": [
+    {
+      "id": "abc123xyz789",
+      "indicator": "malicious.example.com",
+      "type": "domain",
+      "malicious_confidence": "high",
+      "published_date": 1673568000,
+      "last_updated": 1705104000,
+      "labels": [
+        {
+          "name": "MalwareC2",
+          "created_on": 1673568000,
+          "last_valid_on": 1705104000
+        },
+        {
+          "name": "PhishingInfrastructure",
+          "created_on": 1673655400,
+          "last_valid_on": 1705104000
+        },
+        {
+          "name": "Ransomware",
+          "created_on": 1673741800,
+          "last_valid_on": 1705104000
+        }
+      ],
+      "actors": [
+        "FANCY BEAR",
+        "APT28",
+        "STRONTIUM"
+      ],
+      "targets": [
+        "Government",
+        "Defense",
+        "Energy"
+      ],
+      "malware_families": [
+        "Emotet",
+        "TrickBot",
+        "Ryuk"
+      ],
+      "threat_types": [
+        "ransomware",
+        "trojan",
+        "backdoor"
+      ],
+      "kill_chains": [
+        "Reconnaissance",
+        "Weaponization",
+        "Delivery",
+        "Exploitation",
+        "Installation",
+        "Command and Control",
+        "Actions on Objectives"
+      ],
+      "vulnerabilities": [
+        "CVE-2021-44228",
+        "CVE-2022-30190",
+        "CVE-2023-23397"
+      ],
+      "relations": [
+        {
+          "indicator": "192.0.2.100",
+          "type": "ip_address"
+        },
+        {
+          "indicator": "attacker@example.com",
+          "type": "email_address"
+        }
+      ],
+      "ip_address_types": [
+        "IPv4"
+      ],
+      "deleted": false,
+      "reports": [
+        "CSIT-12345",
+        "CSIT-12346"
+      ]
+    },
+    {
+      "id": "def456uvw012",
+      "indicator": "d41d8cd98f00b204e9800998ecf8427e",
+      "type": "hash_md5",
+      "malicious_confidence": "medium",
+      "published_date": 1672358400,
+      "last_updated": 1704067200,
+      "labels": [
+        {
+          "name": "Malicious",
+          "created_on": 1672358400,
+          "last_valid_on": 1704067200
+        }
+      ],
+      "actors": [
+        "LAZARUS GROUP"
+      ],
+      "targets": [
+        "Financial",
+        "Cryptocurrency"
+      ],
+      "malware_families": [
+        "DTrack"
+      ],
+      "threat_types": [
+        "spyware",
+        "infostealer"
+      ],
+      "kill_chains": [
+        "Delivery",
+        "Exploitation",
+        "Installation"
+      ],
+      "vulnerabilities": [],
+      "relations": [],
+      "deleted": false,
+      "reports": [
+        "CSIT-54321"
+      ]
+    }
+  ],
+  "_internal_debug": {
+    "query_time_ms": 145,
+    "api_version": "v1",
+    "rate_limit_remaining": 9998
+  }
+}

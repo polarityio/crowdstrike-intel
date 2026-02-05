@@ -1,0 +1,61 @@
+{
+  "root": {
+    "path": "",
+    "on_null": "return_empty"
+  },
+  "pipeline": [
+    {
+      "op": "copy",
+      "from": "intel[].malicious_confidence",
+      "to": "reduced_results.intel_malicious_confidence"
+    },
+    {
+      "op": "copy",
+      "from": "intel[].labels[].name",
+      "to": "reduced_results.intel_labels_names"
+    },
+    {
+      "op": "copy",
+      "from": "intel[].actors",
+      "to": "reduced_results.intel_actors"
+    },
+    {
+      "op": "copy",
+      "from": "intel[].malware_families",
+      "to": "reduced_results.intel_malware_families"
+    },
+    {
+      "op": "copy",
+      "from": "intel[].threat_types",
+      "to": "reduced_results.intel_threat_types"
+    },
+    {
+      "op": "copy",
+      "from": "intel[].last_updated",
+      "to": "reduced_results.intel_last_updated"
+    },
+    {
+      "op": "copy",
+      "from": "intel[].published_date",
+      "to": "reduced_results.intel_published_date"
+    },
+    {
+      "op": "copy",
+      "from": "intel[].kill_chains",
+      "to": "reduced_results.intel_kill_chains"
+    },
+    {
+      "op": "copy",
+      "from": "intel[].vulnerabilities",
+      "to": "reduced_results.intel_vulnerabilities"
+    },
+    {
+      "op": "prune",
+      "strategy": "empty_values",
+      "target": "reduced_results"
+    }
+  ],
+  "output": {
+    "result": "$working.reduced_results"
+  }
+}
